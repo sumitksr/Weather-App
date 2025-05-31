@@ -133,6 +133,9 @@ function updateTheme(weatherInfo) {
     // Remove all weather classes
     wrapper.classList.remove('rainy', 'sunny', 'cloudy', 'night');
 
+    // Remove rain animation if it exists
+    removeRainAnimation();
+
     if (isNight) {
         wrapper.classList.add('night');
         return;
@@ -142,6 +145,7 @@ function updateTheme(weatherInfo) {
     if (weatherCode >= 200 && weatherCode < 600) {
         // Rain, Drizzle, Thunderstorm
         wrapper.classList.add('rainy');
+        createRainAnimation();
     } else if (weatherCode >= 600 && weatherCode < 700) {
         // Snow
         wrapper.classList.add('cloudy');
@@ -154,6 +158,51 @@ function updateTheme(weatherInfo) {
     } else if (weatherCode > 800) {
         // Clouds
         wrapper.classList.add('cloudy');
+    }
+}
+
+function createRainAnimation() {
+    // Create rain container if it doesn't exist
+    let rainContainer = document.querySelector('.rain-container');
+    if (!rainContainer) {
+        rainContainer = document.createElement('div');
+        rainContainer.className = 'rain-container';
+        document.body.appendChild(rainContainer);
+    }
+
+    // Clear existing raindrops
+    rainContainer.innerHTML = '';
+
+    // Create new raindrops
+    const numberOfDrops = 100;
+    for (let i = 0; i < numberOfDrops; i++) {
+        const drop = document.createElement('div');
+        drop.className = 'raindrop';
+        
+        // Random position
+        drop.style.left = `${Math.random() * 100}%`;
+        
+        // Random animation duration between 0.5s and 1.5s
+        const duration = Math.random() * 1 + 0.5;
+        drop.style.animationDuration = `${duration}s`;
+        
+        // Random delay
+        drop.style.animationDelay = `${Math.random() * 2}s`;
+        
+        // Random opacity
+        drop.style.opacity = Math.random() * 0.6 + 0.4;
+        
+        rainContainer.appendChild(drop);
+    }
+
+    // Show rain container
+    rainContainer.classList.add('active');
+}
+
+function removeRainAnimation() {
+    const rainContainer = document.querySelector('.rain-container');
+    if (rainContainer) {
+        rainContainer.classList.remove('active');
     }
 }
 
