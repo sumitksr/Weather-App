@@ -95,7 +95,7 @@
   position: relative; /* for rain overlays */
   height: 100vh;
   width: 100vw;
-  overflow-y: auto;
+  overflow:hidden;
   color: var(--colorLight2);
   background-color: var(--gradientStart);
   background-image: linear-gradient(
