@@ -111,6 +111,7 @@ function renderWeatherInfo(weatherInfo) {
     const humidity = document.querySelector('[data-humidity]');
     const clouds = document.querySelector('[data-clouds]');
 
+    // Update weather info
     cityName.innerText = weatherInfo?.name;
     countryFlag.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
     description.innerText = weatherInfo?.weather?.[0]?.description;
@@ -119,6 +120,49 @@ function renderWeatherInfo(weatherInfo) {
     windspeed.innerText = `${weatherInfo?.wind?.speed.toFixed(2)} m/s`;
     humidity.innerText = `${weatherInfo?.main?.humidity.toFixed(2)} %`;
     clouds.innerText = `${weatherInfo?.clouds?.all.toFixed(2)} %`;
+
+    // Update theme based on weather
+    updateTheme(weatherInfo);
+}
+
+function updateTheme(weatherInfo) {
+    const wrapper = document.querySelector('.wrapper');
+    const weatherCode = weatherInfo?.weather?.[0]?.id;
+    const isNight = isNightTime(weatherInfo);
+
+    // Remove all weather classes
+    wrapper.classList.remove('rainy', 'sunny', 'cloudy', 'night');
+
+    if (isNight) {
+        wrapper.classList.add('night');
+        return;
+    }
+
+    // Weather codes from OpenWeatherMap
+    if (weatherCode >= 200 && weatherCode < 600) {
+        // Rain, Drizzle, Thunderstorm
+        wrapper.classList.add('rainy');
+    } else if (weatherCode >= 600 && weatherCode < 700) {
+        // Snow
+        wrapper.classList.add('cloudy');
+    } else if (weatherCode >= 700 && weatherCode < 800) {
+        // Atmosphere (mist, fog, etc.)
+        wrapper.classList.add('cloudy');
+    } else if (weatherCode === 800) {
+        // Clear sky
+        wrapper.classList.add('sunny');
+    } else if (weatherCode > 800) {
+        // Clouds
+        wrapper.classList.add('cloudy');
+    }
+}
+
+function isNightTime(weatherInfo) {
+    const currentTime = new Date().getTime() / 1000;
+    const sunrise = weatherInfo?.sys?.sunrise;
+    const sunset = weatherInfo?.sys?.sunset;
+    
+    return currentTime < sunrise || currentTime > sunset;
 }
 
 const grantAccessButton = document.querySelector('[data-grantAccess]');
