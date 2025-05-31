@@ -32,11 +32,9 @@ A modern, responsive weather application that provides real-time weather informa
 
 ## Screenshots 📸
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/b6f1a488-4f0e-422c-8f82-30b17cb43884" alt="Screenshot: Sunny Theme" width="600" /><br /><em>Sunny background with clear‐sky gradient</em>
-  <br /><br />
-  <img src="https://github.com/user-attachments/assets/7cd17bf5-54b1-4fe5-bcd6-dc93b6c8d1db" alt="Screenshot: Rainy Theme" width="600" /><br /><em>Rainy background + rain overlay animation</em>
-</p>
+![image](https://github.com/user-attachments/assets/340292d1-583f-4e1e-8a2f-4e59472d91ba)
+![image](https://github.com/user-attachments/assets/dfb86218-88f1-4c89-bc72-9b0820346a2f)
+
 
 ---
 
