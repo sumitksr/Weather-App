@@ -38,7 +38,7 @@ A modern, responsive weather application that provides real-time weather informa
 ### Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/weather-app.git
+git clone https://github.com/sumitksr/weather-app.git
 cd weather-app
 ```
 
@@ -53,7 +53,7 @@ cd weather-app
 1. Open `script.js`
 2. Replace the API_KEY constant with your OpenWeatherMap API key:
 ```javascript
-const API_KEY = "your_api_key_here";
+const API_KEY = "3ead8920ad761e54c2c1a9434e95a4bd";
 ```
 
 ### Running the Application
