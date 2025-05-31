@@ -1,0 +1,429 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+:root {
+  --colorDark1: #1a1b4b;
+  --colorDark2: #4a4e8c;
+  --colorLight1: #e0e1ff;
+  --colorLight2: #f8f9ff;
+  --accentColor: #6c63ff;
+  --gradientStart: #1a1b4b;
+  --gradientEnd: #4a4e8c;
+}
+
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  color: var(--colorLight2);
+  background-color: var(--gradientStart);
+  background-image: linear-gradient(160deg, var(--gradientStart) 0%, var(--gradientEnd) 100%);
+}
+
+/* Heading and Tab Container 
+*/
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  word-spacing: 2px;
+  letter-spacing: 1.75px;
+  margin-block: 2rem;
+}
+
+.tabContainer {
+  width: 90%;
+  max-width: 550px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.tab {
+  cursor: pointer;
+  font-size: 0.875rem;
+  letter-spacing: 1.75px;
+  padding: 5px 8px;
+  text-transform: capitalize;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(224, 225, 255, 0.15);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-in-out;
+  border-radius: 4px;
+}
+
+.tab:hover::after {
+  transform: scaleX(1);
+}
+
+.tab.currentTab {
+  background-color: rgba(224, 225, 255, 0.15);
+  border-radius: 4px;
+}
+/* Main Container */
+.container {
+  margin-block: 4rem;
+}
+
+.btn {
+  all: unset;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  padding: 10px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--accentColor);
+  color: var(--colorLight2);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #5a52e0;
+  transform: translateY(-2px);
+}
+
+.subContainer {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Form Container */
+.formContainer {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0 10px;
+}
+
+.formContainer.active {
+    display: flex;
+}
+
+.formContainer input {
+    all: unset;
+    width: calc(100% - 80px);
+    height: 40px;
+    padding: 0 20px;
+    background-color: rgba(224, 225, 255, 0.15);
+    border-radius: 10px;
+    color: var(--colorLight2);
+}
+
+.formContainer input:focus {
+    outline: 3px solid var(--accentColor);
+}
+
+.formContainer input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.formContainer .btn {
+    width: 40px;
+    height: 40px;
+    /* display: grid;
+    place-items: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: unset;
+    border-radius: 100%;
+}
+
+.form-container .btn img {
+    object-fit: contain;
+}
+
+/* Form Container End */
+
+/* grant Location  */
+.grantLocationContainer {
+    display: none;
+}
+
+.grantLocationContainer.active {
+    display: flex;
+}
+
+.grantLocationContainer img {
+    margin-bottom: 1.5rem;
+}
+
+.grantLocationContainer p:first-of-type {
+    font-weight: 600;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+.grantLocationContainer p:first-of-type {
+    font-weight: 600;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+.grantLocationContainer p:last-of-type {
+    font-size: 0.75rem;
+    text-align: center;
+    margin-top: 0.75rem;
+    margin-bottom: 1.75rem;
+    font-weight: 300;
+    letter-spacing: 0.75px;
+}
+
+/* Grant Location End  */
+
+.loadingContainer {
+    display: none;
+}
+
+.loadingContainer.active {
+    display: flex;
+}
+
+.loadingContainer p {
+    text-transform: uppercase;
+}
+
+.userInfoContainer {
+    display: none;
+}
+
+.userInfoContainer.active {
+    display: flex;
+}
+
+.userInfoContainer p {
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+.userInfoContainer img {
+    height: 70px;
+    width: 70px;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    gap: 0 0.5rem;
+    margin-bottom: 0.7rem;
+}
+
+.name img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.userInfoContainer p[data-temp] {
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+
+.userInfoContainer p[data-weatherDesc] {
+    text-transform: capitalize;
+    font-size: 1.2rem;
+}
+
+.parameterContainer {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    gap: 10px 20px;
+    margin: 1.6rem auto 0;
+    flex-wrap: wrap;
+}
+
+.parameter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(224, 225, 255, 0.15);
+    padding: 0.8rem;
+    border-radius: 5px;
+    width: 30%;
+    max-width: 200px;
+    gap: 5px 0;
+    transition: transform 0.3s ease;
+}
+
+.parameter:hover {
+    transform: translateY(-5px);
+    background-color: rgba(224, 225, 255, 0.2);
+}
+
+.parameter p {
+    font-size: 1rem;
+    font-size: 600;
+    text-transform: uppercase;
+}
+
+.parameter img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.parameterValue {
+    font-size: 0.8rem;
+    font-weight: 200;
+}
+
+.errorContainer {
+    display: none;
+}
+
+.errorContainer.active {
+    display: flex;
+    gap: 1rem 0;
+}
+
+.errorContainer p {
+    text-align: center;
+}
+
+.errorContainer img {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+/* Media Queries for Mobile Devices */
+@media screen and (max-width: 768px) {
+  .wrapper {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-block: 1.5rem;
+  }
+
+  .tabContainer {
+    width: 95%;
+    margin-top: 0.5rem;
+  }
+
+  .tab {
+    font-size: 0.75rem;
+    padding: 4px 6px;
+  }
+
+  .formContainer {
+    width: 95%;
+    margin-top: 0.5rem;
+  }
+
+  .formContainer input {
+    height: 35px;
+    font-size: 0.9rem;
+  }
+
+  .formContainer .btn {
+    width: 35px;
+    height: 35px;
+  }
+
+  .parameterContainer {
+    width: 95%;
+    gap: 8px 12px;
+  }
+
+  .parameter {
+    width: 45%;
+    padding: 0.6rem;
+  }
+
+  .parameter img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .parameter p {
+    font-size: 0.9rem;
+  }
+
+  .parameterValue {
+    font-size: 0.75rem;
+  }
+
+  .userInfoContainer p {
+    font-size: 1.2rem;
+  }
+
+  .userInfoContainer p[data-temp] {
+    font-size: 1.8rem;
+  }
+
+  .userInfoContainer p[data-weatherDesc] {
+    font-size: 1rem;
+  }
+
+  .name {
+    gap: 0 0.3rem;
+  }
+
+  .name img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .grantLocationContainer p:first-of-type {
+    font-size: 1.4rem;
+  }
+
+  .grantLocationContainer p:last-of-type {
+    font-size: 0.7rem;
+  }
+
+  .errorContainer img {
+    max-width: 250px;
+  }
+}
+
+/* For very small devices */
+@media screen and (max-width: 380px) {
+  .parameter {
+    width: 100%;
+  }
+
+  .tab {
+    font-size: 0.7rem;
+    padding: 3px 5px;
+  }
+
+  .formContainer input {
+    font-size: 0.8rem;
+  }
+}
