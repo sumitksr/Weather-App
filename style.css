@@ -8,6 +8,7 @@
 }
 
 :root {
+  /* Default Theme (Clear Sky) */
   --colorDark1: #1a1b4b;
   --colorDark2: #4a4e8c;
   --colorLight1: #e0e1ff;
@@ -17,6 +18,44 @@
   --gradientEnd: #4a4e8c;
 }
 
+/* Rainy Theme */
+.wrapper.rainy {
+  --gradientStart: #2c3e50;
+  --gradientEnd: #34495e;
+  --accentColor: #3498db;
+  --colorLight1: #bdc3c7;
+  --colorLight2: #ecf0f1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sunny Theme */
+.wrapper.sunny {
+  --gradientStart: #f39c12;
+  --gradientEnd: #f1c40f;
+  --accentColor: #e67e22;
+  --colorLight1: #fef9e7;
+  --colorLight2: #fffde7;
+}
+
+/* Cloudy Theme */
+.wrapper.cloudy {
+  --gradientStart: #4a4a4a;
+  --gradientEnd: #2c2c2c;
+  --accentColor: #7f8c8d;
+  --colorLight1: #e0e0e0;
+  --colorLight2: #f5f5f5;
+}
+
+/* Night Theme */
+.wrapper.night {
+  --gradientStart: #1a1a2e;
+  --gradientEnd: #16213e;
+  --accentColor: #4a4e8c;
+  --colorLight1: #e0e1ff;
+  --colorLight2: #f8f9ff;
+}
+
 .wrapper {
   height: 100vh;
   width: 100vw;
@@ -24,6 +63,52 @@
   color: var(--colorLight2);
   background-color: var(--gradientStart);
   background-image: linear-gradient(160deg, var(--gradientStart) 0%, var(--gradientEnd) 100%);
+  transition: all 0.5s ease-in-out;
+}
+
+/* Weather-specific overlays */
+.wrapper.rainy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(44, 62, 80, 0.3), rgba(52, 73, 94, 0.3));
+  pointer-events: none;
+}
+
+.wrapper.sunny::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.2), transparent 70%);
+  pointer-events: none;
+}
+
+.wrapper.cloudy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(44, 44, 44, 0.4), rgba(28, 28, 28, 0.4));
+  pointer-events: none;
+}
+
+.wrapper.night::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(26, 26, 46, 0.3), transparent 70%);
+  pointer-events: none;
 }
 
 /* Heading and Tab Container 
@@ -426,4 +511,62 @@ h1 {
   .formContainer input {
     font-size: 0.8rem;
   }
+}
+
+/* Rain Animation */
+.rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.raindrop {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.8));
+  animation: fall linear infinite;
+}
+
+.raindrop:nth-child(1) { left: 5%; animation-duration: 1.2s; animation-delay: 0s; }
+.raindrop:nth-child(2) { left: 15%; animation-duration: 1.5s; animation-delay: 0.2s; }
+.raindrop:nth-child(3) { left: 25%; animation-duration: 1.3s; animation-delay: 0.4s; }
+.raindrop:nth-child(4) { left: 35%; animation-duration: 1.4s; animation-delay: 0.6s; }
+.raindrop:nth-child(5) { left: 45%; animation-duration: 1.2s; animation-delay: 0.8s; }
+.raindrop:nth-child(6) { left: 55%; animation-duration: 1.5s; animation-delay: 1s; }
+.raindrop:nth-child(7) { left: 65%; animation-duration: 1.3s; animation-delay: 1.2s; }
+.raindrop:nth-child(8) { left: 75%; animation-duration: 1.4s; animation-delay: 1.4s; }
+.raindrop:nth-child(9) { left: 85%; animation-duration: 1.2s; animation-delay: 1.6s; }
+.raindrop:nth-child(10) { left: 95%; animation-duration: 1.5s; animation-delay: 1.8s; }
+.raindrop:nth-child(11) { left: 10%; animation-duration: 1.3s; animation-delay: 2s; }
+.raindrop:nth-child(12) { left: 20%; animation-duration: 1.4s; animation-delay: 2.2s; }
+.raindrop:nth-child(13) { left: 30%; animation-duration: 1.2s; animation-delay: 2.4s; }
+.raindrop:nth-child(14) { left: 40%; animation-duration: 1.5s; animation-delay: 2.6s; }
+.raindrop:nth-child(15) { left: 50%; animation-duration: 1.3s; animation-delay: 2.8s; }
+.raindrop:nth-child(16) { left: 60%; animation-duration: 1.4s; animation-delay: 3s; }
+.raindrop:nth-child(17) { left: 70%; animation-duration: 1.2s; animation-delay: 3.2s; }
+.raindrop:nth-child(18) { left: 80%; animation-duration: 1.5s; animation-delay: 3.4s; }
+.raindrop:nth-child(19) { left: 90%; animation-duration: 1.3s; animation-delay: 3.6s; }
+.raindrop:nth-child(20) { left: 100%; animation-duration: 1.4s; animation-delay: 3.8s; }
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+/* Add rain drops */
+.wrapper.rainy .rain {
+  display: block;
+}
+
+.wrapper:not(.rainy) .rain {
+  display: none;
 }
