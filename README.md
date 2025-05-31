@@ -18,11 +18,14 @@ A modern, responsive weather application that provides real-time weather informa
 
 ## Live Demo 🚀
 
-[Add your deployed site link here]
+[Weather-APP](https://weather-app-alpha-azure.vercel.app/)
 
 ## Screenshots 📸
 
-[Add your screenshots here]
+![image](https://github.com/user-attachments/assets/b6f1a488-4f0e-422c-8f82-30b17cb43884)
+![image](https://github.com/user-attachments/assets/7cd17bf5-54b1-4fe5-bcd6-dc93b6c8d1db)
+
+
 
 ## Prerequisites 📋
 
