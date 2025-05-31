@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
 
-    <!-- Link Font  -->
+    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,24 +14,27 @@
       rel="stylesheet"
     />
 
-    <!-- Link Script  -->
-    <script src="./script.js" defer></script>
-
-    <!-- Link CSS  -->
+    <!-- Link CSS -->
     <link rel="stylesheet" href="./style.css" />
+
+    <!-- Link Script -->
+    <script src="./script.js" defer></script>
   </head>
   <body>
-    <!-- Wrapper -->
+    <!-- Wrapper (all content & rain overlay go inside here) -->
     <div class="wrapper">
+      <!-- Rain‐animation container (absolutely positioned) -->
+      <div class="rain-container"></div>
+
       <h1>Weather App</h1>
+
       <div class="tabContainer">
-        <p class="tab " data-userWeather>Your Weather</p>
+        <p class="tab currentTab" data-userWeather>Your Weather</p>
         <p class="tab" data-searchWeather>Search Weather</p>
       </div>
 
-      <!-- Container -->
       <div class="container">
-        <!-- Search Container -->
+        <!-- Search Form -->
         <form class="formContainer" data-searchForm>
           <input
             type="text"
@@ -48,7 +51,7 @@
           </button>
         </form>
 
-        <!-- Grant Location Access  -->
+        <!-- Grant Location Access -->
         <div class="grantLocationContainer subContainer">
           <img
             src="./Images/location.png"
@@ -61,12 +64,13 @@
           <button class="btn" data-grantAccess>Grant Access</button>
         </div>
 
+        <!-- Loading Screen -->
         <div class="subContainer loadingContainer">
           <img src="./Images/loading.gif" width="150" height="150" />
           <p>Loading</p>
         </div>
 
-        <!-- Weather Info -->
+        <!-- Weather Info Display -->
         <div class="userInfoContainer subContainer">
           <div class="name">
             <p data-cityName></p>
@@ -82,27 +86,27 @@
             <!-- Wind Speed -->
             <div class="parameter">
               <img src="Images/wind.png" alt="#" />
-              <p>windspeed</p>
+              <p>Windspeed</p>
               <p class="parameterValue" data-windspeed></p>
             </div>
 
             <!-- Humidity -->
             <div class="parameter">
               <img src="Images/humidity.png" alt="#" />
-              <p>humidity</p>
+              <p>Humidity</p>
               <p class="parameterValue" data-humidity></p>
             </div>
 
-            <!-- Wind Speed -->
+            <!-- Clouds -->
             <div class="parameter">
               <img src="Images/cloud.png" alt="#" />
-              <p>clouds</p>
+              <p>Clouds</p>
               <p class="parameterValue" data-clouds></p>
             </div>
           </div>
         </div>
 
-        <!-- Location Not Found -->
+        <!-- Error / Not Found -->
         <div class="errorContainer subContainer">
           <img src="./Images/not-found.png" data-errorImg />
           <p data-errorText></p>
